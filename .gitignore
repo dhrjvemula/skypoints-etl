@@ -1,0 +1,27 @@
+# OS
+.DS_Store
+Thumbs.db
+*~
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*.iml
+
+# Local environment and generated files
+.env
+.env.*
+*.local
+*.log
+*.tmp
+*.pyc
+__pycache__/
+.venv/
+venv/
+target/
+
+# Snowflake / SnowSQL local artifacts
+.snowsql/
+snowflake.log
