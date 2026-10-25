@@ -1,0 +1,15 @@
+-- =======================================================================
+-- Production wiring — Streams + Tasks for continuous ingestion.
+--
+-- The demo scripts call the normalization and dispatch procedures
+-- directly for determinism. In production, the same procedures are
+-- fired by Snowflake Tasks whenever their stream has new rows, giving
+-- near-real-time processing with no external orchestrator.
+--
+-- To activate the pipeline, resume tasks *in reverse dependency order*
+-- (children before parents — Snowflake's convention):
+--
+--     ALTER TASK T_RUN_DQ               RESUME;
+--     ALTER TASK T_MERGE_REDEMPTIONS    RESUME;
+--     ALTER TASK T_DISPATCH_MEMBERS     RESUME;
+--     ALTER TASK T_NORMALIZE_U
